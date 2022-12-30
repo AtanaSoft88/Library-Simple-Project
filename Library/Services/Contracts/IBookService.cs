@@ -9,7 +9,9 @@ namespace Library.Services.Contracts
         Task<IEnumerable<Category>> GetAllCategories();
         Task CurrentBookAdd(AddBookViewModel model);
         Task AddBookToCollection(int movieId, string userId);
-        Task<IEnumerable<BookViewModel>> GetReadBooks(string userId);
+        Task EditBookService(EditViewModel model);
+        Task<IEnumerable<BookViewModel>> GetReadBooks(string userId);        
         Task RemoveBookFromCollection(int movieId, string userId);
+        Task<Book> FindBookById(int? bookId);
     }
 }

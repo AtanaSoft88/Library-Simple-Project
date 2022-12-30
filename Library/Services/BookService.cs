@@ -24,7 +24,8 @@ namespace Library.Services
                 Author=x.Author,
                 Category = x.Category.Name,
                 ImageUrl = x.ImageUrl,
-                Rating = x.Rating
+                Rating = x.Rating,
+                Description = x.Description,
             }).ToListAsync();
             return booksCollection;
         }
@@ -113,6 +114,29 @@ namespace Library.Services
             currentUser.ApplicationUsersBooks.Remove(currentBook);
 
             await context.SaveChangesAsync();
+        }
+
+        public async Task EditBookService(EditViewModel model)
+        {
+            var book = await FindBookById(model.BookId);            
+            
+            if (book != null) 
+            {
+                book.Title = model.Title;                
+                book.CategoryId=model.CategoryId;
+                book.Description = model.Description;
+                book.Author = model.Author;
+                book.Rating = model.Rating;
+                book.ImageUrl = model.ImageUrl;                
+                await context.SaveChangesAsync();
+
+            }
+           
+        }
+
+        public async Task<Book> FindBookById(int? bookId)
+        {
+            return await context.Books.FindAsync(bookId);
         }
     }
 }
