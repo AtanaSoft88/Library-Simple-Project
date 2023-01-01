@@ -61,8 +61,8 @@ namespace Library.Services
             if (movie == null)
             {
                 throw new ArgumentException("Invalid Movie Id!");
-            }
-            var isAlreadyAdd = context.Users.SelectMany(x => x.ApplicationUsersBooks).Where(x => x.BookId == bookId).Any();
+            }           
+            var isAlreadyAdd = user.ApplicationUsersBooks.Any(x => x.BookId == bookId);
             if (isAlreadyAdd)
             {
                 return;

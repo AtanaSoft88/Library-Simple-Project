@@ -72,7 +72,7 @@ namespace Library.Controllers
         public async Task<IActionResult> Add(AddBookViewModel model)
         {
             if (!ModelState.IsValid)
-            { // if not valid return the model of the form to be filled again by the user
+            { 
                 return this.View(model);
             }
             try

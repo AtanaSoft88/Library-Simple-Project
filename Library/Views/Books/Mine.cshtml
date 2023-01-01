@@ -21,20 +21,21 @@ else
 <div class="text-center row">
     @foreach (var book in Model)
     {
-        <div class="card col-4" style="width: 20rem; height: auto;">
+        <div class="card col-4 bg-opacity-25 bg-success m-1" style="width: 20rem; height: auto;">
             <img class="card-img-top" style="width: 15rem;"
              src="@book.ImageUrl" alt="Book Image">
             <div class="card-body">
-                <h5 class="card-title mt-1">@book.Title</h5>
-                <p class="mb-0">Author: @book.Author</p>
-                <p class="mb-0">Description: @book.Description</p>
-                <p class="mb-0">Rating: @book.Rating</p>
-                <p>Category: @book.Category</p>
-            </div>
 
+                <p class="card-title mt-1 bg-dark text-warning rounded-pill"> <strong>@book.Title</strong> </p>
+                <p class="mb-0"><strong>Author:</strong> @book.Author</p>
+                <p class="mb-0"><strong>Rating:</strong> @book.Rating</p>
+                <p class="mb-0"><strong>Description:</strong> @book.Description</p>
+                <p class="mb-0"><strong>Category:</strong> @book.Category</p>
+
+            </div>           
             <form class="input-group-sm" asp-controller="Books" asp-action="RemoveFromCollection" asp-route-bookId="@book.Id">
-                <input class="fs-6 btn btn-success mb-3 p-2" type="submit" value="Remove from Collection" />
+                <input class="fs-6 btn btn-secondary btn-outline-warning mb-3 p-2 rounded-pill shadow-lg box-shadow" type="submit" value="Remove from Collection" />
             </form>
-        </div>
+        </div>        
     }
 </div>

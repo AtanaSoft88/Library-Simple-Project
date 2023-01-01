@@ -10,24 +10,24 @@
 <div class="text-center row">
     @foreach (var book in Model)
     {
-        <div class="card col-4" style="width: 20rem;">
+        <div class="card col-4 bg-opacity-25 bg-success m-1" style="width: 20rem;">
             <img class="card-img-top" style="width: 14rem;"
              src="@book.ImageUrl" alt="Book Image">
             <div class="card-body">
 
-                <h5 class="card-title mt-1">@book.Title</h5>
-                <p class="mb-0">Author: @book.Author</p>
-                <p class="mb-0">Rating: @book.Rating</p>
-                <p class="mb-0">Description: @book.Description</p>
-                <p>Category: @book.Category</p>
+                <p class="card-title mt-1 bg-dark text-warning rounded-pill"> <strong>@book.Title</strong> </p>
+                <p class="mb-0"><strong>Author:</strong> @book.Author</p>
+                <p class="mb-0"><strong>Rating:</strong> @book.Rating</p>
+                <p class="mb-0"><strong>Description:</strong> @book.Description</p>
+                <p class="mb-0"><strong>Category:</strong> @book.Category</p>
             </div>
-
+            <hr>
             <form class="input-group-sm" asp-controller="Books" asp-action="AddToCollection" asp-route-bookId="@book.Id">
-                <input type="submit" value="Add to Collection" class="fs-6 btn btn-success mb-3 p-2" />
+                <input type="submit" value="Add to Collection" class="fs-6 btn btn-success btn-outline-dark mb-3 p-2 rounded-pill" />
             </form>
 
             <form method="get" class="input-group-sm" asp-controller="Books" asp-action="Edit" asp-route-Id="@book.Id">
-                <input type="submit" value="Edit Book" class="fs-6 btn btn-warning btn-outline-info mb-3 p-2" />
+                <input type="submit" value="Edit Book" class="fs-6 btn btn-warning btn-outline-dark mb-3 p-2 rounded-pill" />
                 
             </form>
         </div>
